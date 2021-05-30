@@ -106,4 +106,38 @@ class MedicionController extends Controller
     	$medicion = \DB::select($sql,array($id));
     	return $medicion;
     }
+
+    /**
+     * @param  int $mes
+     * @param int $anio
+     * @return \Illuminate\Http\Response
+     */
+    public function listaMedicionPeriodo($mes, $anio){
+//        var_dump($request);
+//        var_dump($mes);
+//        var_dump($anio);
+        $sql ="SELECT usuarios.id, medidors.numero, usuarios.name AS socio, medidors.estado, medicions.lecturaAnt,
+                    medicions.lecturaAct, medicions.consumo, medicions.total, medicions.fechaMedicion, medicions.id as medicionsId,
+                    usuarios.id AS idUser
+                FROM medicions, medidors, usuarios
+                WHERE medicions.medidor_id = medidors.id AND medidors.usuario_id = usuarios.id AND 
+                    month(medicions.fechaMedicion) = ? AND year(medicions.fechaMedicion) = ? ;" ;
+        $listamedicion = \DB::select($sql,array($mes,$anio));
+//        DD($listamedicion);
+        return $listamedicion;
+
+    }
+
+    /**
+     *
+     */
+    public function medidorUsuario(){
+        $sql="SELECT medidors.id AS medidorId, medidors.numero, usuarios.name as socio
+            FROM usuarios,medidors
+            WHERE usuarios.id=medidors.usuario_id ;";
+
+        $listaUsurioMedidor = \DB::select($sql);
+
+        return $listaUsurioMedidor;
+    }
 }

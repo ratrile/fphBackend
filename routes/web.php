@@ -25,6 +25,7 @@ Route::get('/', function () {
 Route::get('/medidor',[MedidorController::class, 'index'])->name('medidor.usuario');
 Route::get('/medicion/ultima/{id}',[MedicionController::class, 'UltimaLectura']);
 Route::get('/usuario/{texto}',[UsuarioController::class, 'buscarUsuario']);
-
+Route::get('/medicion/editar',[MedicionController::class, 'listaMedicionPeriodo']);
+Route::get('/recibo/cobro/cuerpo/{idMedicion}',[ReciboController::class, 'cuerpoRecibo']);
 //Route::get('/medicion/lectura',[MedicionController::class, 'store'])->name('medicon.lectura');
 

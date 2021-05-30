@@ -27,4 +27,8 @@ class Medicion extends Model
     public function Medidor(){
     	return $this->belongsTo('App\Models\Medidor');
     }
+
+    public function recibo(){
+        return $this->hasOne('App\Models\Recibo');
+    }
 }

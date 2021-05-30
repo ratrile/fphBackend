@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MedicionController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\MedidorController;
+use App\Http\Controllers\ReciboController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,11 @@ Route::get('/usuario',[UsuarioController::class, 'index'])->name('usuario');
 Route::get('/medidores',[MedidorController::class, 'medidorAll']);
 Route::post('/medicion/lectura',[MedicionController::class, 'store']);
 Route::put('/medicion/lecturaModifica',[MedicionController::class, 'edit']);
+Route::get('/medicion/editar/{mes}/{anio}',[MedicionController::class, 'listaMedicionPeriodo']);
+Route::get('/medicion/lista-ususrio-medidor',[MedicionController::class, 'medidorUsuario']);
+Route::get('/recibo/lista-medidor-medicion/{idMedidor}',[ReciboController::class, 'medidorMedicion']);
+Route::get('/recibo/pdf',[ReciboController::class, 'pdf']);
+Route::post('/recibo/cobro',[ReciboController::class, 'store']);
+Route::get('/recibo/cobro/cuerpo/{idMedicion}',[ReciboController::class, 'cuerpoRecibo']);
+Route::get('/recibo/cobro/max-id',[ReciboController::class, 'maxId']);
+Route::get('/recibo/impimirCopia/{idMedicion}',[ReciboController::class, 'copia']);

@@ -102,7 +102,7 @@ class MedidorController extends Controller
         $sql = "
             SELECT medidors.id AS medidorId, medidors.numero AS medidor, usuarios.name AS socio,
                     medidors.estado, medicions.lecturaAct, medicions.lecturaAnt, medicions.fechaMedicion as fechaUltimaMedicion,
-                    medicions.consumo, medicions.total, medicions.id AS medicionsId
+                    medicions.consumo, medicions.total, medicions.id AS medicionsId, usuarios.id AS idUser
                 FROM medidors, usuarios, medicions
                 WHERE usuarios.id = medidors.usuario_id and medidors.id = medicions.medidor_id
                       AND medicions.id =(SELECT max(id) from medicions where medicions.medidor_id= medidors.id) ";
