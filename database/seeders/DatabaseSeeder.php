@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
 
         $csv = Reader::createFromPath('database/seeders/usuarios.csv', 'r');
 
-        $csv->setDelimiter(';');
+        $csv->setDelimiter(',');
 
         $csv->setHeaderOffset(0);
         $records = $csv->getRecords();
