@@ -6,7 +6,7 @@ use App\Http\Controllers\MedicionController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\MedidorController;
 use App\Http\Controllers\ReciboController;
-
+use App\Http\Controllers\CuentaController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -34,3 +34,9 @@ Route::post('/recibo/cobro',[ReciboController::class, 'store']);
 Route::get('/recibo/cobro/cuerpo/{idMedicion}',[ReciboController::class, 'cuerpoRecibo']);
 Route::get('/recibo/cobro/max-id',[ReciboController::class, 'maxId']);
 Route::get('/recibo/impimirCopia/{idMedicion}',[ReciboController::class, 'copia']);
+Route::post('/usuario/crear',[UsuarioController::class,'create']);
+Route::post('/usuario/editar',[UsuarioController::class,'update']);
+Route::get('/cuenta',[CuentaController::class,'create']);
+Route::post('/cuenta/crear',[CuentaController::class,'create']);
+Route::post('/usuario/editar',[CuentaController::class,'update']);
+Route::post('/usuario/editarAct',[CuentaController::class,'updateActivo']);

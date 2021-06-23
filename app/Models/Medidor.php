@@ -9,6 +9,13 @@ class Medidor extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'numero',
+        'estado',
+        'fecha',
+        'usuario_id',
+    ];
+
     //relacion uno a muchos inverso
     public function usuario(){
     	return $this->belongsTo('App\Models\Usuario');
