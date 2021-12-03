@@ -7,6 +7,8 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\MedidorController;
 use App\Http\Controllers\ReciboController;
 use App\Http\Controllers\CuentaController;
+use App\Http\Controllers\CuboCostoController;
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -40,3 +42,9 @@ Route::get('/cuenta',[CuentaController::class,'create']);
 Route::post('/cuenta/crear',[CuentaController::class,'create']);
 Route::post('/usuario/editar',[CuentaController::class,'update']);
 Route::post('/usuario/editarAct',[CuentaController::class,'updateActivo']);
+Route::get('/configuracion/listaTarifa',[CuboCostoController::class,'index']);
+Route::post('/configuracion/nuevaTarifa',[CuboCostoController::class,'create']);
+Route::post('/configuracion/editTarifa',[CuboCostoController::class,'edit']);
+Route::post('/configuracion/elegirTarifa',[CuboCostoController::class,'selecionar']);
+Route::get('/configuracion/tarifaActual',[CuboCostoController::class,'tarifaActual']);
+Route::post('/login',[LoginController::class,'acceder']);
