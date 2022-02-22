@@ -19,7 +19,20 @@ class ReciboController extends Controller
                 month(me.fechaMedicion) AS mes , year(me.fechaMedicion) AS anio
             FROM medicions me LEFT JOIN recibos re ON
                 (me.id = re.medicion_id)
-            WHERE me.medidor_id = ? ORDER BY me.id ASC LIMIT 6;";
+            WHERE me.medidor_id = ? ORDER BY me.id ASC;";
+
+        $listamedicionMedidor = \DB::select($sql,array($idMedidor));
+
+        return $listamedicionMedidor;
+    }
+
+    public function medidorMedicionRecibo($idMedidor){
+        $sql="SELECT me.lecturaAnt, me.lecturaAct, me.fechaMedicion, me.consumo,
+                me.total, re.fechaEmision, me.pagado, me.id as medicion_id, me.medidor_id as id_medidor,
+                month(me.fechaMedicion) AS mes , year(me.fechaMedicion) AS anio
+            FROM medicions me LEFT JOIN recibos re ON
+                (me.id = re.medicion_id)
+            WHERE me.medidor_id = ? ORDER BY me.id desc LIMIT 6;";
 
         $listamedicionMedidor = \DB::select($sql,array($idMedidor));
 

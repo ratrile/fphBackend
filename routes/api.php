@@ -31,6 +31,7 @@ Route::put('/medicion/lecturaModifica',[MedicionController::class, 'edit']);
 Route::get('/medicion/editar/{mes}/{anio}',[MedicionController::class, 'listaMedicionPeriodo']);
 Route::get('/medicion/lista-ususrio-medidor',[MedicionController::class, 'medidorUsuario']);
 Route::get('/recibo/lista-medidor-medicion/{idMedidor}',[ReciboController::class, 'medidorMedicion']);
+Route::get('/recibo/lista-medidor-medicion-recibo/{idMedidor}',[ReciboController::class, 'medidorMedicionRecibo']);
 Route::get('/recibo/pdf',[ReciboController::class, 'pdf']);
 Route::post('/recibo/cobro',[ReciboController::class, 'store']);
 Route::get('/recibo/cobro/cuerpo/{idMedicion}',[ReciboController::class, 'cuerpoRecibo']);
