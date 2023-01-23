@@ -41,7 +41,7 @@ Route::post('/usuario/crear',[UsuarioController::class,'create']);
 Route::post('/usuario/editar',[UsuarioController::class,'update']);
 Route::get('/cuenta',[CuentaController::class,'create']);
 Route::post('/cuenta/crear',[CuentaController::class,'create']);
-Route::post('/usuario/editar',[CuentaController::class,'update']);
+Route::post('/usuario/editar',[UsuarioController::class,'update']);
 Route::post('/usuario/editarAct',[CuentaController::class,'updateActivo']);
 Route::get('/configuracion/listaTarifa',[CuboCostoController::class,'index']);
 Route::post('/configuracion/nuevaTarifa',[CuboCostoController::class,'create']);

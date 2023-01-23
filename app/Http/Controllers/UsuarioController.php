@@ -98,15 +98,17 @@ class UsuarioController extends Controller
         //
     }
 
+    // * @param  int  $id
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+    
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
     {
+        //dd($request);
         $sql ="UPDATE usuarios
                 SET name = ?, ci = ?, direccion = ? 
                 WHERE id =?";

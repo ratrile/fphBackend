@@ -19,7 +19,7 @@ class ReciboController extends Controller
                 month(me.fechaMedicion) AS mes , year(me.fechaMedicion) AS anio
             FROM medicions me LEFT JOIN recibos re ON
                 (me.id = re.medicion_id)
-            WHERE me.medidor_id = ? ORDER BY me.id ASC;";
+            WHERE me.medidor_id = ? ORDER BY me.fechaMedicion ASC;";
 
         $listamedicionMedidor = \DB::select($sql,array($idMedidor));
 
@@ -32,7 +32,7 @@ class ReciboController extends Controller
                 month(me.fechaMedicion) AS mes , year(me.fechaMedicion) AS anio
             FROM medicions me LEFT JOIN recibos re ON
                 (me.id = re.medicion_id)
-            WHERE me.medidor_id = ? ORDER BY me.id desc LIMIT 6;";
+            WHERE me.medidor_id = ? ORDER BY me.fechaMedicion desc LIMIT 6;";
 
         $listamedicionMedidor = \DB::select($sql,array($idMedidor));
 
